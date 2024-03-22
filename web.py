@@ -1,13 +1,13 @@
 from flask import Flask
 from markupsafe import escape
 app = Flask(__name__)
-import pymysql as MySQLdb
+#import pymysql as MySQLdb
 
 @app.route('/')
 def hello_world():
     return 'Hello, World2!'
 
-@app.route('/sql'):
+@app.route('/sql')
 def sql():
     server = open('/bindings/mysql/host').read()
     user = open('/bindings/mysql/username').read()
@@ -21,7 +21,7 @@ def sql():
         results = cursor.fetchone()
     # Check if anything at all is 
         return 'OK'              
-    except MySQLdb.Error:
+    except:
         return "ERROR IN CONNECTION"
 
 
