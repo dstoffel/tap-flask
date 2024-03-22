@@ -20,7 +20,7 @@ k8s_custom_deploy(
     live_update=[
       sync('.', '/workspace/'),
       run(
-            'pip install -r /workspace/requirements.txt',
+            'apt-get install -y pkg-config build-essential libmysqlclient-dev && pip install -r /workspace/requirements.txt',
             trigger=['./workspace/requirements.txt']
         )
     ]
