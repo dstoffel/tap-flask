@@ -12,7 +12,10 @@ metadata:
     - tanzu
   annotations:
     'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=tap-flask'
+     backstage.io/techdocs-ref: value
 spec:
   type: service
   lifecycle: experimental
   owner: default-team
+  providesApis:
+    - dev/tap-flask-906e7589
