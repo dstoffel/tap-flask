@@ -1,0 +1,11 @@
+---
+apiVersion: v1
+kind: Secret
+metadata:
+ name: tap-flask-values
+stringData:
+ values.yaml: |
+   ---
+   workload_name: tap-flask
+   replicas: 1
+   hostname: tap-flask-staging.tap.itq.lab
