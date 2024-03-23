@@ -1,0 +1,33 @@
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: Package
+metadata:
+  name: tap-flask.dev.itq.lab.20240323122542.0.0+build.7fddb00
+spec:
+  refName: tap-flask.dev.itq.lab
+  version: 20240323122542.0.0+build.7fddb00
+  releaseNotes: |
+    Release v20240323122542.0.0+build.7fddb00 of package tap-flask.dev.itq.lab
+  template:
+    spec:
+      fetch:
+      - imgpkgBundle:
+          image: harbor.tap.itq.lab/tap/workloads/tap-flask-dev-bundle@sha256:d2763928dc6d53224376cc40180aceb2079456732a7ed87d2d6b865478774d73
+      template:
+      - ytt:
+          paths:
+          - .
+      - kbld:
+          paths:
+          - .imgpkg/images.yml
+          - '-'
+      deploy:
+      - kapp: {}
+  valuesSchema:
+    openAPIv3:
+      type: object
+      additionalProperties: false
+      properties:
+        workload_name:
+          type: string
+          default: ""
+
