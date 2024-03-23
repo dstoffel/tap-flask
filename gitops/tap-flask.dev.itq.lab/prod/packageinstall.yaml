@@ -1,0 +1,14 @@
+---
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageInstall
+metadata:
+ name: tap-flask
+spec:
+ serviceAccountName: default # ServiceAccount on run cluster with permissions to deploy Package, see "Set up run Cluster Namespaces"
+ packageRef:
+   refName: tap-flask.dev.itq.lab # name of the Package
+   versionSelection:
+     constraints: 20240323121009.0.0 # version of the Package
+ values:
+ - secretRef:
+     name:  tap-flask-values # Secret created in previous step
