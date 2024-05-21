@@ -23,7 +23,7 @@ class PetOut(Schema):
 
 @app.get('/')
 def say_hello():
-    return {'message': 'Hello!'}
+    return {'message': 'Helloaaaa!'}
 
 
 @app.get('/pets/<int:pet_id>')
